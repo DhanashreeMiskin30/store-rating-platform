@@ -199,4 +199,6 @@ All seeded accounts share the password **`StrongPass@123`**.
 
 ## Screenshots
 
-_Add screenshots of the Login page, Admin Dashboard, Admin Users/Stores tables, Normal User store grid, and Store Owner dashboard here after running the app locally._
+_This drive  contain screenshots of the Login page, Admin Dashboard, Admin Users/Stores tables, Normal User store grid, and Store Owner dashboard here after running the app locally._
+
+** https://drive.google.com/drive/folders/1eo38la0jiL2daUW-QDjGfmZf8ytoVFyO?usp=sharing **

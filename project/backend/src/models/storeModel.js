@@ -27,7 +27,7 @@ async function countStores() {
  * Paginated, filterable, sortable listing of stores with computed average
  * rating and (optionally) the requesting user's own rating for each store.
  */
-async function listStores({ name, email, address, sortBy, sortOrder, page, limit, currentUserId }) {
+async function listStores({ name, email, address, search, sortBy, sortOrder, page, limit, currentUserId }) {
   const allowedSort = ['name', 'email', 'address', 'rating'];
   const sortColumn = allowedSort.includes(sortBy) ? sortBy : 'name';
   const order = sortOrder === 'desc' ? 'DESC' : 'ASC';
@@ -35,14 +35,21 @@ async function listStores({ name, email, address, sortBy, sortOrder, page, limit
   const conditions = [];
   const params = [];
 
+  if (search) {
+    conditions.push('(s.name LIKE ? OR s.address LIKE ?)');
+    params.push(`%${search}%`, `%${search}%`);
+  }
+
   if (name) {
     conditions.push('s.name LIKE ?');
     params.push(`%${name}%`);
   }
+
   if (email) {
     conditions.push('s.email LIKE ?');
     params.push(`%${email}%`);
   }
+
   if (address) {
     conditions.push('s.address LIKE ?');
     params.push(`%${address}%`);

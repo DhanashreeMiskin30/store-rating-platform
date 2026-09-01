@@ -6,9 +6,10 @@ async function listStoresForUser(query, currentUserId) {
   const search = query.search;
 
   const { rows, total } = await storeModel.listStores({
-    name: search,
+    search,
+    name: undefined,
     email: undefined,
-    address: search,
+    address: undefined,
     sortBy: query.sortBy,
     sortOrder: query.sortOrder,
     page,
